@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Address Form</title>
+</head>
+<body>
+<header th:replace="fragments/navbar.html"> </header>
+
+<form action="/meteo" method="post">
+  <div>
+    <label for="address">Saisir votre adresse :</label>
+    <input name="address" id="address">
+  </div>
+  <div>
+    <button>Afficher la météo !</button>
+  </div>
+
+</form >
+</body>
+</html>

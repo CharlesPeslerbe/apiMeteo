@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Meteo</title>
+
+</head>
+<style>
+
+    table {
+        width: 80%;
+        margin-top: 200px;
+        margin-left: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+    header {
+        top: 0;
+    }
+</style>
+<body>
+<header th:replace="fragments/navbar.html"> </header>
+
+<div>
+    <p th:text="'Adresse saisie : ' + ${address}"></p>
+    <p th:text="'longitude : ' + ${longitude}"></p>
+    <p th:text="'latitude : ' + ${latitude}"></p>
+
+    <h2>Prévision Météo</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Temperature Min</th>
+            <th>Temperature Max</th>
+            <th>Code de temps</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop through the forecast list and display weather information -->
+        <tr th:each="weather : ${forecast}">
+            <td th:text="${#strings.substring(weather.datetime, 8, 10) +'/'+#strings.substring(weather.datetime, 5, 7)}"></td>
+            <td th:text="${weather.tmin + '°C'}"></td>
+            <td th:text="${weather.tmax + '°C'}"></td>
+            <td th:text="${weather.getWeatherText(weather.weather)}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

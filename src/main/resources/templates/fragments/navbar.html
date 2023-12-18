@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NavigationBar</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+
+<nav th:fragment="navbar" class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/}">API TP</a>
+        </div>
+        <div class="row">
+            <div class="col">
+                <a href="/greeting">Greetings</a>
+            </div>
+            <div class="col">
+                <a href="/address">Addresses</a>
+            </div>
+            <div class="col">
+                <a href="/h2-console">Database</a>
+            </div>
+            <div class="col">
+                <a href="/addressform">Address Form</a>
+            </div>
+        </div>
+</nav>
+
+</body>
+</html>
